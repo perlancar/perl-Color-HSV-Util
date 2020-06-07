@@ -6,11 +6,12 @@ package Color::HSV::Util;
 # VERSION
 
 use 5.010001;
-use strict;
+use strict 'subs', 'vars';
 use warnings;
 
-require Exporter;
-our @ISA = qw(Exporter);
+use Color::RGB::Util ();
+
+use Exporter 'import';
 our @EXPORT_OK = qw(
                        hsl2hsv
                        hsv2hsl
@@ -18,7 +19,9 @@ our @EXPORT_OK = qw(
                        rgb2hsv
                );
 
-use Color::RGB::Util @EXPORT_OK;
+for (@EXPORT_OK) {
+    *{$_} = \&{"Color::RGB::Util::$_"};
+}
 
 1;
 # ABSTRACT: Utilities related to HSV color space
