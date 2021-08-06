@@ -38,6 +38,15 @@ for (@EXPORT_OK) {
 
 =head1 DESCRIPTION
 
+HSV color value is written using this notation:
+
+ H S V
+
+that is, three floating point numbers separated by a single space. Examples:
+
+ 0 1 1                     # red (RGB ff0000)
+ 120 0.498 1               # light green (RGB 80ff80)
+
 
 =head1 FUNCTIONS
 
